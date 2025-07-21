@@ -1,15 +1,18 @@
 export interface ServerToClientEvents {
-	message: (msg: string) => void;
-	// noArg: () => void;
-	// basicEmit: (a: number, b: string, c: Buffer) => void;
-	// withAck: (d: string, callback: (e: number) => void) => void;
+	receiveMessage: (messageData: ChatMessageSchema) => void;
+	getPlayersFromRoom: (usernameList: string[]) => void;
 }
 export interface ClientToServerEvents {
-	sendMessage: (msg: string) => void;
+	sendMessage: (roomId: string, messageData: ChatMessageSchema) => void;
 	joinRoom: (roomId: string) => void;
 	leaveRoom: (roomId: string) => void;
+	findPlayersFromRoom: (roomId: string) => void;
 }
 export interface InterServerEvents {}
 export interface SocketData {
 	username: string;
+}
+export interface ChatMessageSchema {
+	username: string;
+	message: string;
 }
