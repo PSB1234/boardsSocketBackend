@@ -2,11 +2,11 @@ import type {
   ServerToClientEvents,
   ClientToServerEvents,
   SocketData,
-} from "@/lib/types.js";
+} from "@/lib/types";
 import type { Server, Socket } from "socket.io";
-import roomHandlers from "../handlers/room-handler.js";
-import { messageHandlers } from "../handlers/message-handler.js";
-import { gameHandler } from "../handlers/game-handler.js";
+import roomHandlers from "@/api/handlers/room-handler";
+import { messageHandlers } from "@/api/handlers/message-handler";
+import { gameHandler } from "@/api/handlers/game-handler";
 
 export function mainControllers(
   io: Server<ServerToClientEvents, ClientToServerEvents, SocketData>,
