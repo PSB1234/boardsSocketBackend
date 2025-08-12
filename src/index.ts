@@ -1,5 +1,5 @@
 import { Server as SocketIOServer } from "socket.io";
-import "dotenv/config";
+import dotenv from "dotenv";
 import type {
   ClientToServerEvents,
   ServerToClientEvents,
@@ -13,7 +13,7 @@ import { initializeRedisClient } from "@/utils/redis-client.ts";
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT;
-
+dotenv.config();
 const io = new SocketIOServer<
   ServerToClientEvents,
   ClientToServerEvents,

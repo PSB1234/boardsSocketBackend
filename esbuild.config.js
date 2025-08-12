@@ -32,6 +32,8 @@ build({
     "tls",
     "zlib",
     "os",
+    "dotenv",
+    "fs",
     // Make socket.io external to avoid bundling issues
     "socket.io",
     "express",
