@@ -28,5 +28,5 @@ Middleware(io);
 mainControllers(io);
 
 server.listen(port, () => {
-  console.log("listening on *:8080");
+  console.log("listening ");
 });

@@ -8,12 +8,33 @@ build({
   entryPoints: ["src/index.ts"], // your main entry file
   bundle: true,
   platform: "node",
-  target: "node22", // match your Node.js version
+  target: "node18", // match your Node.js version
   format: "esm", // because you're using NodeNext
   outdir: "dist",
   sourcemap: true,
   alias: {
     "@": path.join(projectRoot, "src"),
   },
-  external: [], // add external packages here if needed
+  external: [
+    // Make Node.js built-ins external
+    "http",
+    "https",
+    "fs",
+    "path",
+    "crypto",
+    "events",
+    "util",
+    "stream",
+    "url",
+    "buffer",
+    "querystring",
+    "net",
+    "tls",
+    "zlib",
+    "os",
+    // Make socket.io external to avoid bundling issues
+    "socket.io",
+    "express",
+    "redis",
+  ],
 }).catch(() => process.exit(1));
